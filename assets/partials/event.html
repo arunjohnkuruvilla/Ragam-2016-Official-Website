@@ -1,0 +1,16 @@
+<div class="page" id="page-docu">
+	<div class="event-body">
+		<div class="event-left col-md-6"></div>
+		<div class="event-right col-md-6">
+			<div class="page-header text-center">
+				<h1>{{eventDetails.name}}</h1>
+				<p class="lead">{{eventDetails.short_description}}</p>
+			</div>
+			<div ng-repeat="section in eventDetails.sections" >
+				<h1>{{section.title}}</h1>
+				<div ng-bind-html="TrustDangerousSnippet(section.text)">{{section.text}}</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

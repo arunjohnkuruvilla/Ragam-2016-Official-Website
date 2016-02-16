@@ -1,0 +1,107 @@
+/* ==========================================================================
+    OVERALL STYLES
+============================================================================= */
+.event-right::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #transparent;
+}
+
+.event-right::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: transparent;
+}
+
+.event-right::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #555;
+}
+
+
+/* ==========================================================================
+    EVENTS PAGE
+============================================================================= */
+.events-body {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: calc(100% - 60px);
+}
+.events-body .category-head{
+	height: 60px;
+}
+.events-body .category-event {
+	height: 20px;
+	margin: 2px 1px 2px 1px;
+	background-color: #656565;
+	pointer-events: auto;
+}
+.events-body .fa {
+	font-size: 2em;
+	color: #000;
+}
+.events-body .category-name {
+	color: #000;
+}
+
+.outer {
+	display:table; 
+	table-layout: fixed;
+	width: 100%;
+	top: 40%;
+	position: absolute;
+}
+.middle {
+	display:table-row;
+}
+.general .category-event:hover {
+	background-color: green;
+}
+.literary .category-event:hover {
+	background-color: red;
+}
+.dance .category-event:hover {
+	background-color: blue;
+}
+.dramatics .category-event:hover {
+	background-color: yellow;
+}
+.music .category-event:hover {
+	background-color: white;
+}
+.fine .category-event:hover {
+	background-color: brown;
+}
+.gaming .category-event:hover {
+	background-color: black;
+}
+.quizzing .category-event:hover {
+	background-color: blue;
+}
+.inner {
+	display:table-cell;
+}
+
+/* ==========================================================================
+    EVENTS PAGE
+============================================================================= */
+.event-body {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: calc(100% - 60px);
+}
+.event-left {
+	height: 100%;
+	background: #F9EEE8;
+	background-image: url(../img/events/debate.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.event-right {
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
