@@ -1,45 +1,49 @@
-<div class="page" id="page-docu">
-	<!--<div class="events-body">
-		<div class="page-header text-center">
-			<h1>{{eventHeaderName}}</h1>
-			<h3>{{eventHeaderDescription}}</h3>
+<div class="page" id="events-page" style="height:100%; width:100%;background:#15a346">
+	<a id="events-menu" class="overlay-menu menu-open" overlay-open-button>
+		&#9776; | MENU
+	</a>
+	<div id="{{category.eventid}}" class="category-tab col-md-12 {{category.eventid}}" style="height:14.28%" ng-repeat="category in events.sub_categories" ng-if="category.name != 'Gaming'" expanding-div>
+		<div class="category-name col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+			<span style="height:100%">{{category.name}}</span>
 		</div>
-		<div class="outer col-md-12" style="padding:0;text-align:center;width:calc(100%-60px)">
-			<div class="middle">
-		    	<div class="inner" ng-repeat="category in events.sub_categories" ng-if="category.name != 'Gaming'">
-		    		<div class="inner-content {{category.name | lowercase}}">
-		    			<div class="category-head">
-		    				<i class="fa fa-music category-icon"></i>
-		    				<br/>
-		    				<span class="category-name">{{category.name}}</span>
-		    			</div>
-		    			<a ng-repeat="event in category.events" href="#events/{{event.event_code}}">
-		    				<div class="category-event" ng-mouseover="changeEvent(event.name, event.short_description)"></div>
-		    			</a>
-		    		</div>
-		    	</div> 
-		    </div>
+		<div class="events-area col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+			<div class="event-name col-md-4 btn btn-1 btn-1b" ng-repeat="event in category.events">
+				<a href="#events/{{event.event_code}}">{{event.name}}</a>
+			</div>
 		</div>
-	</div>-->
-	<section>
-				<div class="tabs tabs-style-line">
-					<div class="content-wrap">
-						<section id="section-line-1"><p>1</p></section>
-						<section id="section-line-2"><p>2</p></section>
-						<section id="section-line-3"><p>3</p></section>
-						<section id="section-line-4"><p>4</p></section>
-						<section id="section-line-5"><p>5</p></section>
-					</div><!-- /content -->
-					<nav>
-						<ul>
-							<li><a href="#section-line-1"><span>Our Controls</span></a></li>
-							<li><a href="#section-line-2"><span>Sony Playstation 4</span></a></li>
-							<li><a href="#section-line-3"><span>Microsoft Xbox One</span></a></li>
-							<li><a href="#section-line-4"><span>Nintendo Wii U</span></a></li>
-							<li><a href="#section-line-5"><span>Microconsoles</span></a></li>
-						</ul>
-					</nav>
-					
-				</div><!-- /tabs -->
-			</section>
+	</div>
+	<div class="overlay overlay-slidedown">
+		<button type="button" class="overlay-close" overlay-close-button>&#10005;</button>
+		<div class="overlay-contents col-md-12">
+			<div class="text-right col-md-6 col-sm-12 col-xs-6 right-column">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#contact">Contact Us</a></li>
+					<li><a href="http://ragam.org.in/market">Marketing Site '16</a></li>
+				</ul>				
+			</div>
+			<div class="col-md-6 col-sm-12 col-xs-6">
+				<ul></ul>
+			</div>
+			<footer class="col-md-12">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <ul class="list-inline social-buttons">
+		                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+		                        </li>
+		                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+		                        </li>
+		                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+		                        </li>
+		                    </ul>
+		                </div>
+		                <div class="col-md-12">
+		                    <span class="copyright">Copyright © Your Website 2014</span>
+		                </div>
+		            </div>
+		        </div>
+		    </footer>
+		</div>
+	</div>
 </div>

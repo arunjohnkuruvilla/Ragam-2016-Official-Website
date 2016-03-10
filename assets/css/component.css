@@ -354,15 +354,8 @@ html.js,
 	transform-style: preserve-3d;
 }
 
-.pt-page-current,
-.no-js .pt-page {
-	visibility: visible;
-	z-index: 1;
-}
 
-.no-js body {
-	overflow: auto;
-}
+
 
 .pt-page-ontop {
 	z-index: 999;
@@ -399,32 +392,6 @@ html.js,
 	color: rgba(0,0,0,0.1);
 }
 
-#pt-page-1 {
-	background-image: url('../img/proshows/atif-cover.jpg');
-	background-size: 100% 100%;
-}
-
-#pt-page-2 {
-	background-image: url('../img/proshows/coldplay-cover.jpg');
-	background-size: 100% 100%;
-}
-
-#pt-page-3 {
-	background-image: url('../img/proshows/avicii-cover.jpg');
-	background-size: 100% 100%;
-}
-
-#pt-page-4 {
-	background-image: url('../img/proshows/shankar-cover.jpg');
-	background-size: 100% 100%;
-}
-
-#pt-page-5 {
-	background-image: url('../img/proshows/shreya-cover.jpg');
-	background-size: 100% 100%;
-}
-
-
 
 /* Triggers (menu and button) */
 
@@ -441,9 +408,6 @@ html.js,
 	transform: translateX(-50%);
 }
 
-.no-js .pt-triggers {
-	display: none;
-}
 
 .pt-triggers .dl-menuwrapper button,
 .pt-touch-button {
@@ -534,3 +498,8 @@ html.js,
 	}
 }
 
+
+.pt-page-current {
+	visibility: visible;
+	z-index: 1;
+}

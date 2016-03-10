@@ -1,0 +1,779 @@
+.element {
+  	position: relative;
+  	top: 45%;
+  	transform: translateY(-50%);
+  	font-size: 9em;
+  	line-height: 0.7;
+}
+.parent-element {
+	-webkit-transform-style: preserve-3d;
+  	-moz-transform-style: preserve-3d;
+  	transform-style: preserve-3d;
+}
+
+
+
+.hexagon {
+  position: relative;
+  display: inline-block;
+  /* left/right margin approx. 25% of .hexagon width + spacing */
+  margin: 1px 18px;
+  background-color: hsl(220, 75%, 75%);
+  text-align: center;
+}
+.hexagon, .hexagon::before, .hexagon::after {
+  /* easy way: height is width * 1.732
+  actual formula is 2*(width/(2*Math.tan(Math.PI/6)))
+  remove border-radius for straight edges on hexagons */
+  width: 67px;
+  height: 116px;
+  border-radius: 20%/5%;
+}
+.hexagon::before {
+  background-color: inherit;
+  content: "";
+  position: absolute;
+  left: 0;
+  -webkit-transform: rotate(-60deg);
+          transform: rotate(-60deg);
+}
+.hexagon::after {
+  background-color: inherit;
+  content: "";
+  position: absolute;
+  left: 0;
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+.hexagon:nth-child(even) {
+  /* top approx. 50% of .hexagon height + spacing */
+  top: 59px;
+}
+.hexagon:hover {
+  background-color: hsla(60, 75%, 75%, 1.0);
+  cursor: pointer;
+  z-index: 105;
+}
+.hexagon:active {
+  background-color: hsla(60, 75%, 50%, 1.0);
+  z-index: 110;
+}
+.hexanone {
+  position: relative;
+  display: inline-block;
+  width: 67px;
+  height: 116px;
+  margin: 1px 18px;
+}
+.hexanone:nth-child(even) {
+  top: 59px;
+}
+.hexagontent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 140%;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  z-index: 100;
+}
+.ibws-fix {
+  /* inline-block whitespace fix */
+  font-size: 0;
+}
+.honeycomb {
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 44, ../compass/sass/style.scss */
+.grid {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+/* line 48, ../compass/sass/style.scss */
+.grid h2 {
+  margin: 20px;
+}
+/* line 51, ../compass/sass/style.scss */
+.grid .img {
+  text-align: center;
+  opacity: .2;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+/* line 58, ../compass/sass/style.scss */
+.grid .img:hover {
+  opacity: 1;
+}
+/* line 63, ../compass/sass/style.scss */
+.grid .tile {
+  display: block;
+  overflow: hidden;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+/* line 69, ../compass/sass/style.scss */
+.grid .tile .link {
+  display: block;
+  padding: 20px;
+  color: #444;
+  text-decoration: none;
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  -o-transition: -o-transform 0.3s;
+  transition: transform 0.3s;
+}
+/* line 77, ../compass/sass/style.scss */
+.grid .tile .link:hover {
+  -webkit-transform: translateX(-5px);
+  -moz-transform: translateX(-5px);
+  -ms-transform: translateX(-5px);
+  -o-transform: translateX(-5px);
+  transform: translateX(-5px);
+}
+/* line 82, ../compass/sass/style.scss */
+.grid .tile .link::after {
+  display: inline-block;
+  position: relative;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.3s ease 0s, opacity 0.2s ease 0s;
+  margin-left: 10px;
+  content: ">>";
+  -webkit-transform: translateX(-20px);
+  -moz-transform: translateX(-20px);
+  -ms-transform: translateX(-20px);
+  -o-transform: translateX(-20px);
+  transform: translateX(-20px);
+}
+/* line 96, ../compass/sass/style.scss */
+.grid .tile .link:hover::before, .grid .tile .link:hover::after, .grid .tile .link:active::before, .grid .tile .link:active::after, .grid .tile .link:focus::before, .grid .tile .link:focus::after {
+  opacity: 0.3;
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  -o-transform: translateX(0px);
+  transform: translateX(0px);
+}
+/* line 104, ../compass/sass/style.scss */
+.grid .tile:nth-child(6n+1) {
+  background-color: #cdcdcd;
+}
+/* line 104, ../compass/sass/style.scss */
+.grid .tile:nth-child(6n+2) {
+  background-color: #d1d1d1;
+}
+/* line 104, ../compass/sass/style.scss */
+.grid .tile:nth-child(6n+3) {
+  background-color: #d3d3d3;
+}
+/* line 104, ../compass/sass/style.scss */
+.grid .tile:nth-child(6n+4) {
+  background-color: #dcdcdc;
+}
+/* line 104, ../compass/sass/style.scss */
+.grid .tile:nth-child(6n+5) {
+  background-color: #e0e0e0;
+}
+/* line 104, ../compass/sass/style.scss */
+.grid .tile:nth-child(6n+6) {
+  background-color: #e8e8e8;
+}
+
+@media all and (min-width: 480px) {
+  /* line 115, ../compass/sass/style.scss */
+  .grid {
+    display: block;
+  }
+
+  /* line 118, ../compass/sass/style.scss */
+  .tile {
+    width: 50%;
+    float: left;
+  }
+}
+@media all and (min-width: 768px) {
+  /* line 124, ../compass/sass/style.scss */
+  .tile {
+    width: 25%;
+  }
+
+  /* line 127, ../compass/sass/style.scss */
+  .link {
+    text-align: center;
+    padding: 60px 20px 20px 20px;
+  }
+  /* line 130, ../compass/sass/style.scss */
+  .link:hover {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+}
+@media all and (min-width: 1024px) {
+  /* line 146, ../compass/sass/style.scss */
+  .tile {
+    overflow: visible;
+    width: 12.5%;
+  }
+
+  /* line 150, ../compass/sass/style.scss */
+  .link {
+    padding: 80px 20px 20px 20px;
+  }
+  /* line 152, ../compass/sass/style.scss */
+  .link:hover {
+    -webkit-transform: translateY(20px);
+    -moz-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    -o-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+}
+
+/* Default view */
+.view{
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  transition: 300ms;
+}
+
+/* First animation*/
+.first .view.ng-enter{
+  left: -100%;
+}
+
+.first .view.ng-enter.ng-enter-active{
+  left: 0%;
+}
+
+.first .view.ng-leave{
+  left: 0%;
+}
+
+.first .view.ng-leave.ng-leave-active{
+  left: 100%;
+}
+
+/* Second animation*/
+.second .view.ng-enter{
+  left: 100%;
+}
+
+.second .view.ng-enter.ng-enter-active{
+  left: 0%;
+}
+
+.second .view.ng-leave{
+  left: 0%;
+}
+
+.second .view.ng-leave.ng-leave-active{
+  left: -100%;
+}
+
+/* Third animation*/
+.third .view.ng-enter{
+  top: 100%;
+}
+
+.third .view.ng-enter.ng-enter-active{
+  top: 0%;
+}
+
+.third .view.ng-leave{
+  top: 0%;
+}
+
+.third .view.ng-leave.ng-leave-active{
+  top: -100%;
+}
+
+/* Third animation*/
+.welcome .view.ng-enter{
+  opacity: 0;
+}
+
+
+
+
+.links{
+  margin: 24px;
+  text-align: center;
+}
+
+
+
+.box{
+  width: 100%;
+  position: absolute;
+  height: 300px;
+  background: tomato;
+  line-height: 300px;
+  text-align: center;
+  font-size: 60px;
+  text-transform: uppercase;
+}
+
+.box.n{
+  text-transform: none;
+}
+
+.loader {
+  /* display: none; */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: #282f23
+}
+.loader-no-bg {
+  background: none
+}
+.loader-item {
+  opacity: 1;
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: -125px;
+  overflow: hidden;
+  border-radius: 250px;
+  -webkit-border-radius: 250px;
+  -moz-border-radius: 250px;
+  -ms-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transform: scale(0, 0);
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -webkit-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -moz-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -o-transition: all 1s cubic-bezier(1, .08, .07, .94)
+}
+.active-item {
+  display: block
+}
+.loader-bar {
+  width: 0%;
+  height: 100%;
+  background: #98684b;
+  transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -webkit-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -moz-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -o-transition: all 1s cubic-bezier(1, .08, .07, .94)
+}
+.loader-f {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 9999;
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease
+}
+.loader-wrap-f {
+  width: 100%;
+  height: 100%;
+  display: table;
+  text-align: center
+}
+.loader-item-f {
+  display: table-cell;
+  vertical-align: middle
+}
+.loader-item-f p {
+  margin-top: 10px
+}
+.loader-f img {
+  width: 100%;
+  height: auto;
+  max-width: 250px
+}
+svg {
+  display: inline-block;
+  width: 100%;
+  height: 100%
+}
+.c-mask-circle {
+  fill: white;
+  stroke: white;
+  stroke-width: 1;
+  animation: stroke-width 5s infinite;
+  -webkit-animation: stroke-width 5s infinite
+}
+@keyframes stroke-width {
+  50% {
+    width: 100%;
+    height: 100%
+  }
+}
+@-webkit-keyframes stroke-width {
+  50% {
+    width: 100%;
+    height: 100%
+  }
+}
+
+
+#top {
+  position:absolute;
+  top: 0;
+  width:100%;
+  height: 0;
+  background: red;
+  transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -webkit-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -moz-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -o-transition: all 1s cubic-bezier(1, .08, .07, .94)
+}
+#left {
+  position:absolute;
+  top: 0;
+  width:100%;
+  height: 0;
+  background: green;
+  transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -webkit-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -moz-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -o-transition: all 1s cubic-bezier(1, .08, .07, .94)
+}
+#bottom {
+  position:absolute;
+  top: 0;
+  width:100%;
+  height: 0;
+  background: blue;
+  transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -webkit-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -moz-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -o-transition: all 1s cubic-bezier(1, .08, .07, .94)
+}
+#right {
+  position:absolute;
+  top: 0;
+  width:100%;
+  height: 0;
+  background: yellow;
+  transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -webkit-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -moz-transition: all 1s cubic-bezier(1, .08, .07, .94);
+  -o-transition: all 1s cubic-bezier(1, .08, .07, .94)
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+
+.flip-container, .front, .back {
+	height: 300px;
+	margin: 0;
+	float: left
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	background:red;
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+
+.square {
+    float:left;
+    position: relative;
+    padding-bottom : 25%; /* = width for a 1:1 aspect ratio */
+    background-color:rgb(249, 164, 64);
+    overflow:hidden;
+    color: #000;
+    border: 4px solid #000;
+    -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+
+}
+
+.content {
+    position:absolute;
+    height:100%; /* = 100% - 2*5% padding */
+    width:100%; /* = 100% - 2*5% padding */
+    left: 0;
+    color: #000;
+    
+}
+.content h2 {
+	transition: font-size 0.5s ease;
+	-webkit-transition: font-size 0.5s ease;
+}
+.content:hover h2 {
+	font-size: 2.5em;
+}
+.table{
+    display:table;
+    width:100%;
+    height:100%;
+}
+.table-cell{
+    display:table-cell;
+    vertical-align:middle;
+}
+
+.category-btn {
+	background-color: #000;
+	color: #fff;
+	font-weight: 900;
+	border: 3px solid #000;
+	border-radius: 0;
+	height: 100%;
+	padding:12px;
+	border-right: 2px solid #fff;
+}
+
+/*  For responsive images */
+
+.content .rs{
+    width:auto;
+    height:auto;
+    max-height:90%;
+    max-width:100%;
+}
+/*  For responsive images as background */
+
+.bg{
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+    color:#fff;
+}
+
+.img1{
+    background-image: url('https://farm3.staticflickr.com/2827/10384422264_d9c7299146.jpg');
+}
+.img2{
+    background-image: url('https://farm7.staticflickr.com/6217/6216951796_e50778255c.jpg');
+}
+.img3{
+    background-image: url('https://farm4.staticflickr.com/3794/13893055574_3df0ab636b.jpg');
+}
+
+/*  following just for the demo */
+
+
+.numbers{
+    font-weight:900;
+    font-size:100px;
+}
+
+#bottom {
+    clear:both;
+    margin:0 1.66%;
+    width:89.68%;
+    padding: 3.5%;
+    background-color:#1E1E1E;
+    color: #fff;
+}
+#bottom p{
+    text-align:center;
+    line-height:2em;
+}
+#bottom a{
+    color: #000;
+    text-decoration:none;
+    border:1px solid #000;
+    padding:10px 20px 12px;
+    line-height:70px;
+    background:#ccc;
+    
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#bottom a:hover{
+    background:#ECECEC;
+    border:1px solid #fff;
+}
+.wrapper {
+    width: 95%;
+    margin: 3em auto;
+}
+
+.masonry {
+    position: fixed;
+
+    padding: 0;
+
+    font-size: .85em;
+}
+
+.item {
+    display: inline-block;
+    background: #fff;
+    padding: 1em;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-shadow: 2px 2px 4px 0 #ccc;
+}
+
+@media only screen and (min-width: 400px) {
+    .masonry {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .masonry {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .masonry {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .masonry {
+        -moz-column-count: 5;
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .wrapper {
+        width: 1260px;
+    }
+}
+.item-0 {
+	height: 350px;
+	background: green;
+}
+.item-1 {
+	height: 200px;
+	background: green;
+}
+.item-2 {
+	height: 400px;
+	background: blue;
+}
+.item-3 {
+	height: 300px;
+	background: yellow;
+}
+.item-4 {
+	height: 200px;
+	background: red;
+}
+.item-5 {
+	height: 250px;
+	background: brown;
+}
+.item-6 {
+	height: 300px;
+	background: purple;
+}
+.item-7 {
+	height: 200px;
+	background: pink;
+}
+.item-8 {
+	height: 200px;
+	background: green;
+}
+.item-9 {
+	height: 200px;
+	background: green;
+}
+.item-10 {
+	height: 200px;
+	background: green;
+}
+
+
+
+/* make keyframes that tell the start state and the end state of our object */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+
+.carousel-inner .active.left { left: -33%; }
+.carousel-inner .next        { left:  33%; }
+.carousel-inner .prev        { left: -33%; }
+.carousel-control.left,.carousel-control.right {background-image:none;}
+.item:not(.prev) {visibility: visible;}
+.item.right:not(.prev) {visibility: hidden;}
+.rightest{ visibility: visible;}

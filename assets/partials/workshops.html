@@ -1,0 +1,54 @@
+<div class="page workshops-page" >
+	<a id="workshops-menu" class="overlay-menu menu-open" overlay-open-button>
+			&#9776; | MENU
+	</a>
+	<data-owl-carousel class="owl-carousel" data-options="{navigation: false, pagination: true, rewindNav : false, items: 3,itemsCustom: [[1200, 3],[992, 3],[768, 1],[480, 1],[375, 1],[320, 1]], paginationNumbers: true}">
+      	<div owl-carousel-item="" ng-repeat="workshop in workshops.events" class="item" style="background-image:url(./assets/img/workshops/{{workshop.event_code}}.gif)">
+        <!--<img src="./assets/img/workshops/{{workshop.event_code}}.jpg" class="img-responsive" style="height:100%;width:100%">-->
+        <div class="item-content" style="">
+        	<h1>{{workshop.name}}</h1>
+        	<p>{{workshop.short_description}}</p>
+        	<!--<a href="#workshops/{{workshop.event_code}}" class="btn">Details<span></span></a>-->
+        	<a href="#workshops/{{workshop.event_code}}" class="btn btn-1 btn-1b">Details</a>
+        </div>
+      </div>
+    </data-owl-carousel>
+    <div class="overlay overlay-slidedown" overlay-close-button>
+		<button type="button" class="overlay-close">&#10005;</button>
+		<div class="overlay-contents col-md-12 text-center">
+			<div class="text-right col-md-6 col-sm-12 col-xs-6 right-column">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#contact">Contact Us</a></li>
+					<li><a href="#gallery">Gallery</a></li>
+					<li><a href="http://ragam.org.in/market">Marketing Site '16</a></li>
+				</ul>				
+			</div>
+			<div class="col-md-6 col-sm-12 col-xs-6">
+				<ul>
+					<li><a href="#events">Events</a></li>
+				</ul>
+				
+			</div>
+			<footer class="col-md-12">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <ul class="list-inline social-buttons">
+		                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+		                        </li>
+		                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+		                        </li>
+		                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+		                        </li>
+		                    </ul>
+		                </div>
+		                <div class="col-md-12">
+		                    <span class="copyright">Copyright © Your Website 2014</span>
+		                </div>
+		            </div>
+		        </div>
+		    </footer>
+		</div>
+	</div>
+</div>

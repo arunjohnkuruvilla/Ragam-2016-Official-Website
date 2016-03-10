@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs">
+    <li ng-class="{active: $index==0}" ng-repeat="item in events.sub_categories"><a data-target="#{{contentBaseId}}-{{$index}}" data-toggle="tab">{{item.name}}</a></li>
+</ul>
+<div class="tab-content">
+    <div ng-class="{active: $index==0}" class="tab-pane" id="{{contentBaseId}}-{{$index}}" ng-repeat="item in events.sub_categories">
+    	<ul class="grid">
+            <li class="tile" ng-repeat="event in item.events">
+                <!--<img src="{{tile.imgUrl}}" alt="{{event.imgAlt}}" class="img">-->
+                <a href="#event/{{event.event_code}}">{{event.name}}</a>
+            </li>
+        </ul>	
+    </div>
+</div>'

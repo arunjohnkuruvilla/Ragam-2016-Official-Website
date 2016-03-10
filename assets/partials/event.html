@@ -1,16 +1,115 @@
-<div class="page" id="page-docu">
-	<div class="event-body">
-		<div class="event-left col-md-6"></div>
-		<div class="event-right col-md-6">
-			<div class="page-header text-center">
-				<h1>{{eventDetails.name}}</h1>
-				<p class="lead">{{eventDetails.short_description}}</p>
-			</div>
-			<div ng-repeat="section in eventDetails.sections" >
-				<h1>{{section.title}}</h1>
-				<div ng-bind-html="TrustDangerousSnippet(section.text)">{{section.text}}</div>
-			</div>
-		</div>
-	</div>
-	
+<div class="page {{eventDetails.category_name}}" id="event-page" style="color:#000;overflow-x:hidden;overflow-y:scroll;z-index:1000">
+	<a id="event-menu" class="overlay-menu menu-open" overlay-open-button>
+			&#9776; | LOGIN
+	</a>
+	<div class="jumbotron">
+		<div class="jumbotron-inner" style="padding:70px;">
+        	<div class="container">
+        		<h1>{{eventDetails.name}}</h1>
+        		<h3 style="font-family:yellowllama;font-size:2em">{{eventDetails.short_description}}</h3>
+      		</div>
+      	</div>
+    </div>
+    <div class="col-md-12 event-details">
+    	<div class="container" style="">
+	   		<div class="row">
+	   			<div class="col-md-12">
+	   				<div id="register-button" class="col-md-12 btn btn-1 btn-1b" registration-div-open>REGISTER</div>
+	   			</div>
+	   		</div>
+	   		<div id="register-box-notLoggedIn" class="col-md-12 register-box">
+	   			<button type="button" class="overlay-close" register-box-close>✕</button>
+	   			<div class="col-md-8 col-md-offset-2">
+	   				Please Login in to continue. Click on the Menu button to login.
+	   			</div>
+	   		</div>
+	   		<div id="register-box-loggedIn" class="col-md-12 register-box">
+	   			<button type="button" class="overlay-close" register-box-close>✕</button>
+	   			<div class="col-md-8 col-md-offset-2">
+	   				<form action="" id="form-event-register" class="form-horizontal" method="POST" role="form" ng-submit="eventRegister()">		
+
+				    	<table class="table">
+				    	    <tbody>
+				    	    	<tr>
+				    	    		<td>Event Name</td>
+				    	    		<td id="registration-data-event-name">{{eventDetails.name}}</td>
+				    	    	</tr>
+				    	    	<tr id="registration-team-size-container">
+				    	    		<td>Team Size [Min / Max]</td>
+				    	    		<td id="registration-data-team-size">[{{eventDetails.team_min}} / {{eventDetails.team_max}}]</td>
+				    	    	</tr>
+				    	    </tbody>
+				    	</table>
+				    	<input type="hidden" name="event_code" id="registration-event-code" value="">
+
+				    	<div id="registration-select-team">
+				    		<ul>
+					    		<li>Click inside the text field below.</li>
+					    		<li>Type in your Team Member's name or Ragam ID (The user should already be registered on the website) to search for the user.</li>
+					    		<li>Click on the name to select as your team member. Similarly, add other team members. (You don't have to add yourself again)</li>
+					    	</ul>
+					    	<label><strong>Add your team members</strong></label>
+							<ui-autocomplete>
+								<ui-select multiple ng-model="teamMembers.members" theme="select2" ng-disabled="disabled" style="width: 800px;">
+								    <ui-select-match placeholder="Select person...">
+								    	{{$item.full_id}} - {{$item.name}}
+								    </ui-select-match>
+								    <ui-select-choices refresh="funcAsync($select.search)" refresh-delay="0" repeat="person in people | propsFilter: {id: $select.search, name: $select.search}">
+								      	<small>
+								        	name: {{person.name}}
+								        	id: <span ng-bind-html="''+person.full_id | highlight: $select.search"></span>
+								      	</small>
+								    </ui-select-choices>
+								</ui-select>
+								  
+							</ui-autocomplete>
+							<p>{{teamMembers.members}}</p>
+					    </div>
+				    	<button type="submit">Confim Registration</button>
+		    			<span id="event-register-messages"></span>
+			    	</form>
+	   			</div>
+	   			
+	   			
+	   		</div>
+	   		<div id="register-box-success" class="col-md-12 register-box">
+	   			<button type="button" class="overlay-close" register-box-close>✕</button>
+	   			<div id="register-success-message"></div>
+	   		</div>
+	   		<div id="register-box-registered" class="col-md-12 register-box">
+	   			<button type="button" class="overlay-close" register-box-close>✕</button>
+	   			<div class="col-md-8 col-md-offset-2" ng-if="eventDetails.registration.status == 'registered'">
+	   				You have already registered for the event.
+	   			</div>
+	   		</div>
+	    	<div class="row" style="font-size:1.5em;padding-top:50px;padding-bottom:50px;">
+	    		<div class="col-md-3" style="padding:0;padding-right:30px">
+					<div class="col-md-12" style="text-align:right">
+						<div ng-repeat="contact in eventDetails.contacts" style="padding-bottom:20px">
+							<p style="margin:0;font-weight:900">{{contact.name}}</p>
+							<p style="margin:0">{{contact.phone}}</p>
+							<p style="margin:0">{{contact.email}}</p>
+						</div>
+					</div>	
+	    		</div>
+	    		<div class="col-md-9" style="border-left:1px solid #000;padding-left:30px">
+	    			<div class="event-intro">{{eventDetails.sections[0].text}}</div>
+					<div class="sections col-md-12" ng-repeat="section in eventDetails.sections" ng-if="section.title != 'Introduction'" style="padding-left:0;padding-top:20px">
+						<div class="section-header col-md-12" style="text-align:left;padding:0;font-weight:900;font-size:1.4em;text-transform:uppercase">{{section.title}}</div>
+						<div class="section-text col-md-12" ng-bind-html="TrustDangerousSnippet(section.text)" style="padding:0">{{section.text}}</div>
+					</div>
+	    		</div>
+	    	</div>
+	    </div>
+    </div>
+	    
+    <div class="jumbotron bottom-jumbotron" style="margin:0;background:#34495e">
+    	<div class="jumbotron-inner">
+	       	<div class="container">
+	        	<p style="font-family:steel;margin-bottom:0;font-size:2em">Next Event</p>
+	        	<p style="font-size:4em"><a href="#events/{{eventDetails.next_event.event_code}}" style="text-decoration:none;font-family:neue;">{{eventDetails.next_event.name}}</a></p>
+	      	</div>
+	    </div>
+    </div>
+    <overlay-div class="overlay overlay-slidedown"></overlay-div>
 </div>
